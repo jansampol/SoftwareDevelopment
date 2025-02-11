@@ -6,7 +6,7 @@
 // Description : Defines the divide function
 //==============================================================
 
-#include "divide.h"
+#include "divide.h" // We have deleted the divide.h file
 
 int divide(const int num, const int den) {
     return num / den;

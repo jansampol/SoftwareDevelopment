@@ -29,15 +29,17 @@ g++ main.o divide.o -o assignment1.1_error
 
 #### Main assignment
 
-Go to the desired directory: ```cd assignment1.1/src```
+Go to the desired directory: ```cd assignment1.1```
 
 
 Compile the ```main.cpp```and ```divide.cpp```files and link them as you did before (change the name of the executable)
 
 ```
-g++ -std=c++14 -c main.cpp
-g++ -std=c++14 -c divide.cpp
-g++ main.o divide.o -o assignment1.1
+g++ -std=c++14 -c src/main.cpp -o build/main.o
+
+g++ -std=c++14 -c src/divide.cpp -o build/divide.o
+
+g++ build/main.o build/divide.o -o assignment1.1
 ```
 Run the executable using 
 

@@ -7,7 +7,7 @@
 //==============================================================
 
 #include <iostream>
-#include "divide.h"
+#include "divide.h" // We have deleted the divide.h file
 
 int main() {
     int a = 7;
