@@ -23,10 +23,19 @@ int main() {
     std::cout << "Enter your last name: ";
     std::getline(std::cin, lName);
 
-    std::cout << "Enter your birth date (day month year, e.g., 16 6 1990): ";
-    std::cin >> birthDay >> birthMonth >> birthYear;
+    // Initialize Person object with a temporary invalid date
+    Person person(fName, lName, -1, -1, -1);
 
-    Person person(fName, lName, birthDay, birthMonth, birthYear);
+    // Ask for date and validate it
+    do {
+        std::cout << "Enter your birth date (day month year, e.g., 16 6 1990): ";
+        std::cin >> birthDay >> birthMonth >> birthYear;
+
+        person.setDateOfBirth(birthDay, birthMonth, birthYear);
+        if (person.getBirthDay() == -1) {
+            std::cerr << "Invalid date. Please try again.\n";
+        }
+    } while (person.getBirthDay() == -1);
     
     // Show the data of the patient
     std::cout << "\n === Patient information === \n" << std::endl;
