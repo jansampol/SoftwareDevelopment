@@ -11,24 +11,33 @@
 
 int main() {
 
-    // Crear an object Person with initial data
-    Person person("Elena", "Nito", 16, 6, 1990);
+    std::string fName, lName;
+    int birthDay, birthMonth, birthYear;
 
-    // Change the name, surname and the date of birth
-    person.setFullName("Elvis", "Teck");
-    person.setDateOfBirth(2,3,1956);
+  // Collect user data
+    std::cout << "=== Patient Information Entry ===" << std::endl;
+
+    std::cout << "Enter your first name: ";
+    std::getline(std::cin, fName);
+
+    std::cout << "Enter your last name: ";
+    std::getline(std::cin, lName);
+
+    std::cout << "Enter your birth date (day month year, e.g., 16 6 1990): ";
+    std::cin >> birthDay >> birthMonth >> birthYear;
+
+    Person person(fName, lName, birthDay, birthMonth, birthYear);
     
-
     // Show the data of the patient
-    std::cout << "Patient information: \n" << std::endl;
+    std::cout << "\n === Patient information === \n" << std::endl;
     std::cout << "First Name: " << person.getFirstName() << std::endl; // Show name
     std::cout << "Last Name: " << person.getLastName() << std::endl; // Show surname
     std::cout << "Date of Birth: " << person.getBirthDay() << "/" 
               << person.getBirthMonth() << "/" << person.getBirthYear() << std::endl; // Show date of birth
     std::cout << "Age: " << person.getAge() << std::endl; // Show age
-    std::cout << "Maximum Heart rate: " << person.calculateMaximumHeartRate() << std::endl; // Show MHR
-    std::cout << "Target Heart Rate: from "<< person.calculateTargetHeartRate().first << " to " 
-              << person.calculateTargetHeartRate().second << std::endl; // Show THR
-    std::cout << "" << std::endl;
+    std::cout << "Maximum Heart rate: " << person.calculateMaximumHeartRate() << "bpm \n" << std::endl; // Show MHR
+    std::cout << "Target Heart Rate: from "<< person.calculateTargetHeartRate().first << "bpm to " 
+              << person.calculateTargetHeartRate().second << "bpm \n" << std::endl; // Show THR
+
     return 0;
 }
