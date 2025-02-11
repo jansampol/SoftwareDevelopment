@@ -35,7 +35,7 @@ int main() {
     std::cout << "Date of Birth: " << person.getBirthDay() << "/" 
               << person.getBirthMonth() << "/" << person.getBirthYear() << std::endl; // Show date of birth
     std::cout << "Age: " << person.getAge() << std::endl; // Show age
-    std::cout << "Maximum Heart rate: " << person.calculateMaximumHeartRate() << "bpm \n" << std::endl; // Show MHR
+    std::cout << "Maximum Heart rate: " << person.calculateMaximumHeartRate() << "bpm" << std::endl; // Show MHR
     std::cout << "Target Heart Rate: from "<< person.calculateTargetHeartRate().first << "bpm to " 
               << person.calculateTargetHeartRate().second << "bpm \n" << std::endl; // Show THR
 
