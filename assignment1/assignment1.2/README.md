@@ -21,7 +21,6 @@ g++ -std=c++14 -c src/print_info.cpp -o build/print_info.o
 
 g++ -std=c++14 -c src/evaluate_BMI.cpp -o build/evaluate_BMI.o
 
-
 ```
 
 After compiling, we can link both files and run the executable by means of this
