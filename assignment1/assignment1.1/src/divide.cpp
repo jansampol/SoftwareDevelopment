@@ -1,9 +1,9 @@
 //==============================================================
-// Filename : sub_assignment1
+// Filename : divide.cpp
 // Authors : Jan Sampol and Tesea Edo
 // Group : 7
 // License : N.A. or open source license like LGPL
-// Description : Defines the devide function
+// Description : Defines the divide function
 //==============================================================
 
 #include "../include/divide.h"

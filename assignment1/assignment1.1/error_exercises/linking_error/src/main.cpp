@@ -1,5 +1,5 @@
 //==============================================================
-// Filename : sub_assignment1
+// Filename : main.cpp
 // Authors : Jan Sampol and Tesea Edo
 // Group : 7
 // License : N.A. or open source license like LGPL

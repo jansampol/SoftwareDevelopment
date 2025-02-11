@@ -1,9 +1,9 @@
 //==============================================================
-// Filename : sub_assignment1
+// Filename : compute_BMI.cpp
 // Authors : Jan Sampol and Tesea Edo
 // Group : 7
 // License : N.A. or open source license like LGPL
-// Description : Defines the BMI function by 
+// Description : Computes the BMI with a given weight and height
 //==============================================================
 
 #include "../include/compute_BMI.h"

@@ -1,3 +1,12 @@
+//==============================================================
+// Filename : main.cpp
+// Authors : Jan Sampol and Tesea Edo
+// Group : 7
+// License : N.A. or open source license like LGPL
+// Description : Calls the compute_BMI(), the evaluateAndPrintBMI(BMI) and the 
+//               function and displays the computed values
+//==============================================================
+
 #include <iostream>
 #include "../include/compute_BMI.h"
 

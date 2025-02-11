@@ -1,3 +1,12 @@
+//==============================================================
+// Filename : person.h
+// Authors : Jan Sampol and Tesea Edo
+// Group : 7
+// License : N.A. or open source license like LGPL
+// Description :  Manages person data and demonstrates heart rate
+//                calculations using the Person class methods.
+//==============================================================
+
 #ifndef PERSON_H
 #define PERSON_H
 

@@ -1,9 +1,9 @@
 //==============================================================
-// Filename : sub_assignment1
+// Filename : divide.cpp
 // Authors : Jan Sampol and Tesea Edo
 // Group : 7
 // License : N.A. or open source license like LGPL
-// Description : Division of two numbers and display of the result
+// Description : Here we have deleted the divide function to create a linking error
 //==============================================================
 
 #include "../include/divide.h"
