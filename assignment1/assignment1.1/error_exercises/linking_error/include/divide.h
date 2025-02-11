@@ -1,9 +1,9 @@
 //==============================================================
-// Filename : sub_assignment1
+// Filename : divide.h
 // Authors : Jan Sampol and Tesea Edo
 // Group : 7
 // License : N.A. or open source license like LGPL
-// Description : Division of two numbers and display of the result
+// Description : declares the divide() function to be shared between multiple source files
 //==============================================================
 
 #ifndef DIVIDE_H

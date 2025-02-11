@@ -1,3 +1,11 @@
+//==============================================================
+// Filename : print_info.cpp
+// Authors : Jan Sampol and Tesea Edo
+// Group : 7
+// License : N.A. or open source license like LGPL
+// Description : Prints the table of BMI classification
+//==============================================================
+
 #include <iostream>
 
 void printInfo() {

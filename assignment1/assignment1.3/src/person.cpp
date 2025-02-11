@@ -1,3 +1,12 @@
+//==============================================================
+// Filename : person.cpp
+// Authors : Jan Sampol and Tesea Edo
+// Group : 7
+// License : N.A. or open source license like LGPL
+// Description :  Implementation of the Person class. Set name, birth date, and 
+//                calculate age, maximum heart rate, and target heart rate ranges.
+//==============================================================
+
 #include "../include/person.h"
 #include <chrono>
 #include <ctime>
