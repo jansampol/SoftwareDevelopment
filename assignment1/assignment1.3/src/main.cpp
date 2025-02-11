@@ -1,10 +1,18 @@
+//==============================================================
+// Filename : main.cpp
+// Authors : Jan Sampol and Tesea Edo
+// Group : 7
+// License : N.A. or open source license like LGPL
+// Description : Imlementation of the class and display of all its attributes                 
+//==============================================================
+
 #include "../include/person.h"
 #include <iostream>
 
 int main() {
 
     // Crear an object Person with initial data
-    Person person("Tommy", "Jerry", 16, 6, 1990);
+    Person person("Elena", "Nito", 16, 6, 1990);
 
     // Change the name, surname and the date of birth
     person.setFullName("Elvis", "Teck");
