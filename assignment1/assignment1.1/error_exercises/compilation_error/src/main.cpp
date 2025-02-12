@@ -6,8 +6,8 @@
 // Description : Calls the divide function defined in divide.cpp and performs the operation
 //==============================================================
 
-#include <iostream>
-#include "divide.h" // We have deleted the divide.h file
+// Erase the #include #include <iostream>
+#include "../include/divide.h" // We have deleted the divide.h file
 
 int main() {
     int a = 7;
