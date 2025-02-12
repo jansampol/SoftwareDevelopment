@@ -4,7 +4,7 @@ To run the code, we have to be at the following directory:
 
 ```cd assignment1.4```
 
-Then, the following lines have to be write down in the terminal:
+Then, the following lines have to be written in the terminal:
 
 ```
 g++ -std=c++14 -c question_e.cpp

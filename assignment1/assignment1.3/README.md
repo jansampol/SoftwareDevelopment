@@ -4,12 +4,6 @@ First of all, we have to set our directory:
 
 ```cd assignment1.3```
 
-To run the code, since there already exist an executable file, you can simply write down the following line in the terminal:
-
-```
-./assignment1.3 
-```
-
 To create the executable, the following steps must be followed:
 
 ```

@@ -4,12 +4,6 @@ First of all, we have to set our directory:
 
 ```cd assignment1.2```
 
-To run the code, since there already exist an executable file, you can simply write down the following line in the terminal:
-
-```
-./bmi_calculator
-```
-
 To create the executable, the following steps must be followed:
 
 ```
