@@ -111,7 +111,7 @@ void Person::setDateOfBirth(int day, int month, int year) { // Set date of birth
         birthDay = day;
         birthMonth = month;
         birthYear = year;
-    } else { // Set date to -1 as a checkpoint
+    } else { // Set date to -1 as a error mark
         birthDay = -1;
         birthMonth = -1;
         birthYear = -1;
