@@ -11,11 +11,20 @@
 #include "../include/compute_BMI.h"
 
 int main() {
-    float weight = 70.0;  // Example weight in kg
-    float height = 1.75;  // Example height in meters
+    float weight, height;
+
+    // Ask the user for input
+    std::cout << "Enter your weight (kg): ";
+    std::cin >> weight;
+
+    std::cout << "Enter your height (m): ";
+    std::cin >> height;
+
+    // Compute BMI
     float BMI = compute_BMI(weight, height);
 
-    std::cout << "\nBMI for weight " << weight << " and height " << height << " is " << BMI << "\n" << std::endl;
+    // Display results
+    std::cout << "\nBMI for weight " << weight << " kg and height " << height << " m is " << BMI << "\n" << std::endl;
     evaluateAndPrintBMI(BMI);
     printInfo();
 
