@@ -11,10 +11,11 @@
 
 int main() {
 
+    // Initialize the variables
     std::string fName, lName;
     int birthDay, birthMonth, birthYear;
 
-  // Collect user data
+    // Collect user data
     std::cout << "=== Patient Information Entry ===" << std::endl;
 
     std::cout << "Enter your first name: ";
