@@ -21,14 +21,13 @@ Person::Person(const std::string& fName, const std::string& lName, int day, int 
         birthMonth = month;
         birthYear = year;
     } else {
-        std::cerr << "Invalid date. Please select a correct birth date" << std::endl;
         birthDay = -1;
         birthMonth = -1;
         birthYear = -1;
     }
 }
 
-// Get current year using system time
+// Get current year
 int Person::getCurrentYear() const {
     std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
     std::time_t currentTime = std::chrono::system_clock::to_time_t(now);
@@ -64,22 +63,25 @@ int Person::getAge() const {
     return age;
 }
 
+// Calulate Maximum Heart Rate
 int Person::calculateMaximumHeartRate() const {
     int age = getAge();
-    if (age < 0) {
+    if (age < 0) { // Check if age is valid
         std::cerr << "Age is invalid. Cannot calculate maximum heart rate." << std::endl;
         return -1;
     }
     return 220 - age;
 }
 
+// Calculate Target Heart Rate
 std::pair<int, int> Person::calculateTargetHeartRate() const {
     int max_hr = calculateMaximumHeartRate();
-    if (max_hr < 0) {
+    if (max_hr < 0) { // Check if MHR is valid
         std::cerr << "Age is invalid. Cannot calculate Target Heart Rate." << std::endl;
         return std::make_pair(-1, -1);
     }
 
+    // Compute lower and uper bound and save it in a pair variable
     int lowerBound = static_cast<int>(max_hr * 0.5);
     int upperBound = static_cast<int>(max_hr * 0.85);
 
@@ -87,40 +89,42 @@ std::pair<int, int> Person::calculateTargetHeartRate() const {
 }
 
 // Getter methods
-std::string Person::getFirstName() const {
+std::string Person::getFirstName() const { // Get first name
     return firstName;
 }
-std::string Person::getLastName() const {
+std::string Person::getLastName() const { // Get last name
     return lastName;
 }
-int Person::getBirthDay() const {
+int Person::getBirthDay() const { // Get birth day
     return birthDay;
 }
-int Person::getBirthMonth() const {
+int Person::getBirthMonth() const { // Get birth month
     return birthMonth;
 }
-int Person::getBirthYear() const {
+int Person::getBirthYear() const { // Get birth year
     return birthYear;
 }
 
 // Setter for the date of birth
-void Person::setDateOfBirth(int day, int month, int year) {
-    if (isValidDate(day, month)) {
+void Person::setDateOfBirth(int day, int month, int year) { // Set date of birth
+    if (isValidDate(day, month)) { // Check if date is valid
         birthDay = day;
         birthMonth = month;
         birthYear = year;
-    } else {
-        std::cerr << "Invalid date. No changes made." << std::endl;
+    } else { // Set date to -1 as a checkpoint
+        birthDay = -1;
+        birthMonth = -1;
+        birthYear = -1;
     }
 }
 
 // Setter for the full name
-void Person::setFullName(const std::string& fName, const std::string& lName) {
+void Person::setFullName(const std::string& fName, const std::string& lName) { // Set full name
     firstName = fName;
     lastName = lName;
 }
 
 // Validation of date
-bool Person::isValidDate(int day, int month) {
+bool Person::isValidDate(int day, int month) { // Define validation date function
     return (day >= 1 && day <= 31) && (month >= 1 && month <= 12);
 }

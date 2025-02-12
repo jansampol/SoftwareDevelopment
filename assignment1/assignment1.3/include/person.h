@@ -20,9 +20,7 @@ private: // Create the private attributes
     int birthDay;
     int birthMonth;
     int birthYear;
-
-    // Bool variable that will indicate if the date introduced is correct
-    bool isValidDate(int day, int month);
+    bool isValidDate(int day, int month); // Bool variable that indicates if the date introduced is valid
 
 public:
     // Constructor: Initialize the object's attributes
@@ -34,15 +32,16 @@ public:
     int getBirthDay() const;
     int getBirthMonth() const;
     int getBirthYear() const;
-
     int getCurrentYear() const;
     int getAge() const;
 
     // Setter: Set values for the private attributes
     void setDateOfBirth(int day, int month, int year); // Change date of birth
     void setFullName(const std::string& fName, const std::string& lName); // Change name and surname
-    int calculateMaximumHeartRate() const; // Compute maximum heart rate
-    std::pair<int, int> calculateTargetHeartRate() const;
+
+    // Declaration of computation functions
+    int calculateMaximumHeartRate() const; // Compute MHR
+    std::pair<int, int> calculateTargetHeartRate() const; // Compute THR
 };
 
 #endif
