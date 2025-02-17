@@ -18,5 +18,6 @@ constexpr size_t COLS = 12;
 
 // Function declaration (without template)
 void print_maze(const std::array<std::array<std::string, COLS>, ROWS>& maze);
+std::pair<int, int> find_init(const std::array<std::array<std::string, COLS>, ROWS>& maze);
 
 #endif
