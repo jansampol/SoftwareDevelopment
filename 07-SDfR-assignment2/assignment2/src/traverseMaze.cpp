@@ -12,50 +12,90 @@
 #include <string>
 #include "../include/maze.h"
 
+// Define a scoped enumeration for the four directions
+enum class Direction { Up, Down, Left, Right };
+
+// Structure to store a decision point
 struct Junction {
-    int i, j;  // Position in the maze
-    std::vector<std::pair<int, int>> options; // Unexplored paths
+    int i, j;
+    std::vector<std::pair<int, int>> options; // Store all the possible exploring options
+    std::vector<std::pair<int, int>> visitedPath; // Coordinates visited from the last decision point
 };
 
 std::vector<Junction> stack; // Stack for backtracking
 
+// Helper function to convert direction to coordinate change
+std::pair<int, int> directionToOffset(Direction dir) {
+    switch (dir) {
+        case Direction::Up:    return {-1, 0};
+        case Direction::Down:  return {1, 0};
+        case Direction::Left:  return {0, -1};
+        case Direction::Right: return{0, 1};
+        default:               return {0, 0};
+    }
+}
+
 bool traverseMaze(std::array<std::array<std::string, COLS>, ROWS>& maze, int i, int j) {
-    // Base Case: Found Exit
-    if (maze[i][j] == "E") {
+
+    if (maze[i][j] == "E") { // Return True if we find the exit
         std::cout << "Maze solved! Reached the exit.\n";
         return true;
     }
 
-    // Mark current position as visited
+    // Mark the current position as visited
     maze[i][j] = "x";
+
+    // Print the maze
     print_maze(maze);
 
-    // Store available paths
+    // Store all possible directions
     std::vector<std::pair<int, int>> options;
-    if (i > 0 && (maze[i - 1][j] == "." || maze[i - 1][j] == "E")) options.emplace_back(i - 1, j); // Up
-    if (i < ROWS - 1 && (maze[i + 1][j] == "." || maze[i + 1][j] == "E")) options.emplace_back(i + 1, j); // Down
-    if (j > 0 && (maze[i][j - 1] == "." || maze[i][j - 1] == "E")) options.emplace_back(i, j - 1); // Left
-    if (j < COLS - 1 && (maze[i][j + 1] == "." || maze[i][j + 1] == "E")) options.emplace_back(i, j + 1); // Right
+    for (Direction dir : {Direction::Up, Direction::Down, Direction::Left, Direction::Right}) {
+        // Get the offset for the current direction
+        std::pair<int, int> offset = directionToOffset(dir);
+        int offset_i = offset.first;
+        int offset_j = offset.second;
+        
+        int next_i = i + offset_i;
+        int next_j = j + offset_j;
 
-    // If at a junction, save it for backtracking
-    if (options.size() > 1) {
-        stack.push_back({i, j, options});
+        // Check if the new coordinates are within bounds and not blocked
+        if (next_i >= 0 && next_i < ROWS && next_j >= 0 && next_j < COLS &&
+            (maze[next_i][next_j] == "." || maze[next_i][next_j] == "E")) {
+            options.emplace_back(next_i, next_j); // Add valid option
+        }
     }
 
-    // Recursively explore each option
+    // If there exist more than one path, it is a decision point
+    if (options.size() > 1) {
+        stack.push_back({i, j, options, {}}); // Store the coordinates of the decision point + the different possible paths
+    }
+
+    // Store the path taken from the last decision point
+    if (!stack.empty()) {
+        stack.back().visitedPath.emplace_back(i, j);
+    }
+
+    // Explore each possible option
     for (auto& option : options) {
         int next_i = option.first;
         int next_j = option.second;
         if (traverseMaze(maze, next_i, next_j)) {
-            return true; // If path leads to exit, stop searching
+            return true; // If we reach the exit, stop searching
         }
     }
 
-    // If no valid path, backtrack
+    // If we get stuck, go back to the last decision point and clean the path
     if (!stack.empty()) {
         Junction lastJunction = stack.back();
-        stack.pop_back(); // Remove last junction
-        return traverseMaze(maze, lastJunction.i, lastJunction.j); // Backtrack
+        stack.pop_back(); // Remove the last decision made
+
+        // Change "x" to "," in the incorrect paths
+        for (auto& point : lastJunction.visitedPath) {
+            maze[point.first][point.second] = ",";
+        }
+
+        return traverseMaze(maze, lastJunction.i, lastJunction.j);
     }
 
     return false; // No solution found

@@ -31,9 +31,6 @@ int main() {
         {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"}
     }};
 
-    // Print the maze
-    print_maze(maze);
-
     // Find the initial position ("x")
     position = find_init(maze);  // Assign the result of find_init to the already declared position
 
