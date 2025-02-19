@@ -38,7 +38,6 @@ std::pair<int, int> directionToOffset(Direction dir) {
 bool traverseMaze(std::array<std::array<std::string, COLS>, ROWS>& maze, int i, int j) {
 
     if (maze[i][j] == "E") { // Return True if we find the exit
-        std::cout << "Maze solved! Reached the exit.\n";
         return true;
     }
 
