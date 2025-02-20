@@ -22,8 +22,6 @@ std::pair<int, int> find_init(const std::array<std::array<std::string, COLS>, RO
             }
         }
     }
-
-    // If 'x' is not found, return an invalid position (-1, -1)
-    std::cout << "Not found\n";
+    
     return std::make_pair(-1, -1);  // Return invalid position
 }

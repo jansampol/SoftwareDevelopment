@@ -8,16 +8,20 @@
 
 #include "../include/maze.h"
 
-void place_exit(std::array<std::array<std::string, COLS>, ROWS>& maze) {
+bool place_exit(std::array<std::array<std::string, COLS>, ROWS>& maze) {
+    bool exitPlaced = false; // Track if at least one "E" is placed
+
     // Check first and last row
     for (size_t j = 0; j < COLS; ++j) {
-        if (maze[0][j] == ".") maze[0][j] = "E";
-        if (maze[ROWS - 1][j] == ".") maze[ROWS - 1][j] = "E";
+        if (maze[0][j] == ".") {maze[0][j] = "E"; exitPlaced = true;}
+        if (maze[ROWS - 1][j] == ".") {maze[ROWS - 1][j] = "E"; exitPlaced = true;}
     }
     
     // Check first and last column
     for (size_t i = 0; i < ROWS; ++i) {
-        if (maze[i][0] == ".") maze[i][0] = "E";
-        if (maze[i][COLS - 1] == ".") maze[i][COLS - 1] = "E";
+        if (maze[i][0] == ".") {maze[i][0] = "E"; exitPlaced = true;}
+        if (maze[i][COLS - 1] == ".") { maze[i][COLS - 1] = "E"; exitPlaced = true; }
     }
+
+    return exitPlaced; // Return true if at least one "E" was placed
 }
