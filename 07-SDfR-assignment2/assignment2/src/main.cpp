@@ -16,7 +16,7 @@ int main() {
     std::pair<int, int> position;
 
     // Define the maze
-    array<array<string, 12>, 12> maze = {{
+    array<array<string, 12>, 12> maze1 = {{
         {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"},
         {"#", ".", ".", ".", "#", ".", ".", ".", ".", ".", ".", "#"},
         {".", ".", "#", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
@@ -31,7 +31,7 @@ int main() {
         {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"}
     }};
 
-    array<array<string, COLS>, ROWS> maze1 = {{
+    array<array<string, COLS>, ROWS> maze2 = {{
             {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"},
             {"x", ".", ".", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
             {"#", ".", "#", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
@@ -46,7 +46,7 @@ int main() {
             {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", ".", "#"}
         }};
 
-    array<array<string, COLS>, ROWS> maze2 = {{
+    array<array<string, COLS>, ROWS> maze3 = {{
         {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"},
         {"#", "x", ".", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
         {"#", ".", "#", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
@@ -60,18 +60,18 @@ int main() {
         {"#", ".", ".", ".", ".", ".", ".", "#", ".", ".", ".", "#"},
         {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"}
     }};
-
-    print_maze(maze);
+    array<array<string, COLS>, ROWS> maze = maze1;
+    print_maze(maze3);
 
     // Find the initial position ("x")
-    position = find_init(maze);  // Assign the result of find_init to the already declared position
-    place_exit(maze);
+    position = find_init(maze3);  // Assign the result of find_init to the already declared position
+    place_exit(maze3);
 
     int start_row = position.first;
     int start_col = position.second;
 
     // Start the maze traversal from the initial position
-    bool traverse_maze = traverseMaze(maze, start_row, start_col);
+    bool traverse_maze = traverseMaze(maze3, start_row, start_col);
 
     if(traverse_maze){
         std::cout << "Maze solved! Reached the exit.\n";
