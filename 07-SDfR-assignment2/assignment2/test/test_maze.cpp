@@ -1,3 +1,11 @@
+//==============================================================
+// Filename : test_maze.cpp
+// Authors : Jan Sampol and Teresa Edo
+// Group : 7
+// License : N.A. or open source license like LGPL
+// Description : Checks the correct working of the program for different maze cases
+//==============================================================
+
 #include <iostream>
 #include <array>
 #include <cassert>

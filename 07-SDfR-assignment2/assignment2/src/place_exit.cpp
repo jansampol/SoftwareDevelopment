@@ -1,5 +1,5 @@
 //==============================================================
-// Filename : exit_finder.cpp
+// Filename : place_exit.cpp
 // Authors : Jan Sampol and Teresa Edo
 // Group : 7
 // License : N.A. or open source license like LGPL
