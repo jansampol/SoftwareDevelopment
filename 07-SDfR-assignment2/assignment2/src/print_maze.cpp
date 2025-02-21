@@ -9,7 +9,7 @@
 #include <iostream>
 #include <array>
 #include <string>
-#include "../include/maze.h"  // Include the header file
+#include "maze.h"  // Include the header file
 
 // Function definition (no template)
 void print_maze(const std::array<std::array<std::string, COLS>, ROWS>& maze) {

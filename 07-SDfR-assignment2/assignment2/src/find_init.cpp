@@ -9,7 +9,7 @@
 #include <iostream>
 #include <array>
 #include <string>
-#include "../include/maze.h"
+#include "maze.h"
 
 // Function to find the initial position ("x") in the maze
 std::pair<int, int> find_init(const std::array<std::array<std::string, COLS>, ROWS>& maze) {
@@ -23,7 +23,5 @@ std::pair<int, int> find_init(const std::array<std::array<std::string, COLS>, RO
         }
     }
 
-    // If 'x' is not found, return an invalid position (-1, -1)
-    std::cout << "Not found\n";
     return std::make_pair(-1, -1);  // Return invalid position
 }
