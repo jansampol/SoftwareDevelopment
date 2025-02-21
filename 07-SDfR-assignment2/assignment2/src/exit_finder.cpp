@@ -6,7 +6,7 @@
 // Description : Finds and marks the exit points in the maze
 //==============================================================
 
-#include "../include/maze.h"
+#include "maze.h"
 
 bool place_exit(std::array<std::array<std::string, COLS>, ROWS>& maze) {
     bool exitPlaced = false; // Track if at least one "E" is placed

@@ -9,7 +9,7 @@
 #include <iostream>
 #include <array>
 using namespace std;
-#include "../include/maze.h"
+#include "maze.h"
 
 int main() {
     // Declare position variable
@@ -17,7 +17,7 @@ int main() {
 
     // Define several 12x12 mazes to test the program
 
-    array<array<string, 12>, 12> maze_correct1 = {{ // A correct maze
+    array<array<string, 12>, 12> maze = {{ // A correct maze
         {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"},
         {"#", ".", ".", ".", "#", ".", ".", ".", ".", ".", ".", "#"},
         {".", ".", "#", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
@@ -32,75 +32,20 @@ int main() {
         {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"}
     }};
 
-    array<array<string, COLS>, ROWS> maze_correct2 = {{ // Another correct maze
-            {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"},
-            {"x", ".", ".", ".", "#", ".", ".", ".", ".", ".", ".", "#"},
-            {"#", ".", "#", ".", "#", ".", "#", "#", ".", "#", ".", "#"},
-            {"#", "#", "#", ".", "#", ".", ".", "#", ".", "#", ".", "#"},
-            {"#", ".", ".", ".", ".", "#", "#", "#", ".", "#", ".", "#"},
-            {"#", "#", "#", "#", ".", "#", ".", "#", ".", "#", ".", "#"},
-            {"#", ".", ".", "#", ".", "#", ".", "#", ".", "#", ".", "#"},
-            {"#", "#", ".", "#", ".", "#", ".", "#", ".", "#", ".", "#"},
-            {"#", ".", ".", ".", ".", ".", ".", "#", ".", "#", ".", "#"},
-            {"#", "#", "#", "#", "#", "#", ".", "#", ".", "#", ".", "#"},
-            {"#", ".", ".", ".", ".", ".", ".", ".", ".", "#", ".", "#"},
-            {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", ".", "#"}
-        }};
+    print_maze(maze); // Print the maze
 
-    array<array<string, COLS>, ROWS> maze_noexit = {{ // A maze without exit
-        {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"},
-        {"x", ".", ".", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
-        {"#", ".", "#", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
-        {"#", "#", "#", ".", "#", ".", ".", ".", ".", "#", ".", "#"},
-        {"#", ".", ".", ".", ".", "#", "#", "#", ".", "#", ".", "#"},
-        {"#", "#", "#", "#", ".", "#", ".", "#", ".", "#", ".", "#"},
-        {"#", ".", ".", "#", ".", "#", ".", "#", ".", "#", ".", "#"},
-        {"#", "#", ".", "#", ".", "#", ".", "#", ".", "#", ".", "#"},
-        {"#", ".", ".", ".", ".", ".", ".", ".", ".", "#", ".", "#"},
-        {"#", "#", "#", "#", "#", "#", ".", "#", "#", "#", ".", "#"},
-        {"#", ".", ".", ".", ".", ".", ".", "#", ".", ".", ".", "#"},
-        {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"}
-    }};
-
-    array<array<string, 12>, 12> maze_nostart = {{ // A maze without starting point
-        {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"},
-        {"#", ".", ".", ".", "#", ".", ".", ".", ".", ".", ".", "#"},
-        {".", ".", "#", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
-        {"#", "#", "#", ".", "#", ".", ".", ".", ".", "#", ".", "#"},
-        {"#", ".", ".", ".", ".", "#", "#", "#", ".", "#", ".", "#"},
-        {"#", "#", "#", "#", ".", "#", ".", "#", ".", "#", ".", "#"},
-        {"#", ".", ".", "#", ".", "#", ".", "#", ".", "#", ".", "#"},
-        {"#", "#", ".", "#", ".", "#", ".", "#", ".", "#", ".", "#"},
-        {"#", ".", ".", ".", ".", ".", ".", ".", ".", "#", ".", "#"},
-        {"#", "#", "#", "#", "#", "#", ".", "#", "#", "#", ".", "#"},
-        {"#", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "#"},
-        {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"}
-    }};
-    array<array<string, COLS>, ROWS> maze = maze_noexit;
-    print_maze(maze);
-
-    // Find the initial position ("x")
-    position = find_init(maze);  // Assign the result of find_init to the already declared position
+    position = find_init(maze);  // Assign the result of find_init
     bool exit = place_exit(maze); // Look if there exist some possible exit
     
-    if (position != std::make_pair(-1, -1) && exit ==true ){ // If initial condition and exit found
-    
-        // Set initial row and column
-        int start_row = position.first;
-        int start_col = position.second;
-
-        // Start the maze traversal from the initial position
-        bool traverse_maze = traverseMaze(maze, start_row, start_col);
-
-        if(traverse_maze){
-            std::cout << "Maze solved! Reached the exit.\n";
-        } else{
-            std::cout << "No exit found :(\n";
-        }} 
-        
-        else{ // If the conditions are not met, inform the user
-            if (position == std::make_pair(-1, -1)){std::cout << "No initial point found\n";}
-            else{std::cout << "No possible end found\n";}
+     if (position != std::make_pair(-1, -1) && exit) {
+        bool solved = traverseMaze(maze, position.first, position.second);
+        if (solved) std::cout << "Maze solved! Reached the exit.\n";
+        else std::cout << "No exit found :(\n";
+    } else {
+        if (position == std::make_pair(-1, -1))
+            std::cout << "No initial point found\n";
+        else
+            std::cout << "No possible end found\n";
     }
 
     return 0;

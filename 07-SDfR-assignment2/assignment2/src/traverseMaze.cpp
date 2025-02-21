@@ -10,7 +10,7 @@
 #include <array>
 #include <vector>
 #include <string>
-#include "../include/maze.h"
+#include "maze.h"
 
 // Define a scoped enumeration for the four directions
 enum class Direction { Up, Down, Left, Right };
