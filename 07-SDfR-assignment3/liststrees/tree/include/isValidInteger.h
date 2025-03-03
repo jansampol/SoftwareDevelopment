@@ -1,6 +1,6 @@
 //==============================================================
 // Filename    : isValidInteger.h
-// Authors     : 
+// Authors     : Teresa Edo and Jan Sampol
 // Group       :
 // License     :  N.A. or opensource license like LGPL
 // Description : 
