@@ -9,12 +9,11 @@
 #include <iostream>
 #include <array>
 #include <cassert>
-using namespace std;
 #include "maze.h"
 
 // Test 1: Maze with a valid exit
 void test_maze_with_exit() {
-    array<array<string, COLS>, ROWS> maze = {{ // Maze with several possible exits
+    std::array<std::array<std::string, COLS>, ROWS> maze = {{ // Maze with several possible exits
         {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"},
         {"x", ".", ".", ".", "#", ".", "#", "#", "#", "#", ".", "."},
         {"#", ".", "#", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
@@ -32,12 +31,12 @@ void test_maze_with_exit() {
     assert(find_init(maze) != std::make_pair(-1, -1)); // Ensure there's a starting position
     assert(place_exit(maze) == true);  // An exit should be placed
 
-    cout << "Test 1 passed: Maze with exit correctly detected.\n";
+    std::cout << "Test 1 passed: Maze with exit and starting point correctly detected.\n";
 }
 
 // Test 2: Maze without an initial point ("x")
 void test_maze_no_start() {
-    array<array<string, COLS>, ROWS> maze = {{ // A maze without initial point
+    std::array<std::array<std::string, COLS>, ROWS> maze = {{ // A maze without initial point
         {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"},
         {"#", ".", ".", ".", "#", ".", ".", ".", ".", ".", ".", "#"},
         {".", ".", "#", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
@@ -53,12 +52,12 @@ void test_maze_no_start() {
     }};
 
     assert(find_init(maze) == std::make_pair(-1, -1));  // No start position should be found
-    cout << "Test 2 passed: Maze without start correctly detected.\n";
+    std::cout << "Test 2 passed: Maze without start correctly detected.\n";
 }
 
 // Test 3: Maze with no valid exit
 void test_maze_no_exit() {
-    array<array<string, COLS>, ROWS> maze = {{ // A maze without exit
+    std::array<std::array<std::string, COLS>, ROWS> maze = {{ // A maze without exit
         {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"},
         {"x", ".", ".", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
         {"#", ".", "#", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
@@ -74,12 +73,12 @@ void test_maze_no_exit() {
     }};
 
     assert(place_exit(maze) == false);  // No exit should be placed
-    cout << "Test 3 passed: Maze without exit correctly detected.\n";
+    std::cout << "Test 3 passed: Maze without exit correctly detected.\n";
 }
 
 // Test 4: Maze with an exit but not reachable
 void test_maze_unreachable_exit() {
-    array<array<string, COLS>, ROWS> maze = {{ // A maze with a not reachable exit
+    std::array<std::array<std::string, COLS>, ROWS> maze = {{ // A maze with a not reachable exit
         {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"},
         {"x", ".", ".", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
         {"#", ".", "#", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
@@ -98,7 +97,7 @@ void test_maze_unreachable_exit() {
     assert(place_exit(maze) == true); // Exit exists
     assert(traverseMaze(maze, find_init(maze).first, find_init(maze).second) == false); // Unreachable exit
 
-    cout << "Test 4 passed: Unreachable exit correctly detected.\n";
+    std::cout << "Test 4 passed: Unreachable exit correctly detected.\n";
 }
 
 int main() {
@@ -107,6 +106,6 @@ int main() {
     test_maze_no_exit();
     test_maze_unreachable_exit();
 
-    cout << "\n All tests passed successfully!\n";
+    std::cout << "\nAll tests passed successfully!\n";
     return 0;
 }

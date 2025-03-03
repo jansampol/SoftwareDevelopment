@@ -3,7 +3,7 @@
 // Authors : Jan Sampol and Teresa Edo
 // Group : 7
 // License : N.A. or open source license like LGPL
-// Description : Defines the maze and calls the print_maze function to print the 2D array
+// Description : Finds the initial point of the maze
 //==============================================================
 
 #include <iostream>

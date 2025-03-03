@@ -3,12 +3,13 @@
 // Authors : Jan Sampol and Teresa Edo
 // Group : 7
 // License : N.A. or open source license like LGPL
-// Description : Defines the maze and calls the print_maze function to print the 2D array
+// Description : Initializes a maze, finds the start and end points, 
+//               and attempts to solve the maze using backtracking. 
+//               Displays results based on the maze solution status.
 //==============================================================
 
 #include <iostream>
 #include <array>
-using namespace std;
 #include "maze.h"
 
 int main() {
@@ -16,7 +17,7 @@ int main() {
     std::pair<int, int> position;
 
     // Define a 12x12 maze
-    array<array<string, COLS>, ROWS> maze = {{ // A correct maze
+    std::array<std::array<std::string, COLS>, ROWS> maze = {{
         {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"},
         {"#", ".", ".", ".", "#", ".", ".", ".", ".", ".", ".", "#"},
         {".", ".", "#", ".", "#", ".", "#", "#", "#", "#", ".", "#"},
@@ -31,17 +32,21 @@ int main() {
         {"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"}
     }};
 
-    print_maze(maze); // Print the maze
+    // Print the maze
+    print_maze(maze);
 
-    position = find_init(maze);  // Assign the result of find_init
-    bool exit = place_exit(maze); // Look if there exist some possible exit
+    // Find the initial position and exit
+    position = find_init(maze);
+    bool exit = place_exit(maze);
 
-    // Try to solve the maze and show the user the result of the maze
-    if (position != std::make_pair(-1, -1) && exit) { // If initial position and end found
+    // Try to solve the maze and show the user the result
+    if (position != std::make_pair(-1, -1) && exit) {
         bool solved = traverseMaze(maze, position.first, position.second);
-        if (solved) std::cout << "Maze solved! Reached the exit.\n";
-        else std::cout << "No exit found :(\n";
-    } else { // If no initial position or end found, communicate the user
+        if (solved)
+            std::cout << "Maze solved! Reached the exit.\n";
+        else
+            std::cout << "No exit found :(\n";
+    } else {
         if (position == std::make_pair(-1, -1))
             std::cout << "No initial point found\n";
         else
