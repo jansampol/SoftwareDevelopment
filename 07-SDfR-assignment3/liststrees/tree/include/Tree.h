@@ -1,3 +1,11 @@
+//==============================================================
+// Filename    : Tree.h
+// Authors     : 
+// Group       :
+// License     :  N.A. or opensource license like LGPL
+// Description : 
+//==============================================================
+
 // Fig. 19.22: Tree.h
 // Tree class-template definition.
 #ifndef TREE_H
