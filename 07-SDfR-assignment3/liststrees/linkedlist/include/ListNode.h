@@ -1,3 +1,11 @@
+//==============================================================
+// Filename    : 
+// Authors     : 
+// Group       :
+// License     :  N.A. or opensource license like LGPL
+// Description : 
+//==============================================================
+
 // Fig. 19.4: ListNode.h
 // ListNode class-template definition.
 #ifndef LISTNODE_H

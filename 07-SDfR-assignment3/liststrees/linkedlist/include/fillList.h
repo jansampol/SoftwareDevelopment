@@ -6,11 +6,11 @@
 // Description : 
 //==============================================================
 
+#ifndef FILLLIST_H
+#define FILLLIST_H
 #include <iostream>
-#include "List.h"
+#include "ListNode.h" // ListNode class definition
 
-void fillList(const std::string& str, List<char>& charList) {
-    for (char ch : str) {
-        charList.insertAtBack(ch);
-    }
-}
+void fillList(const std::string& str, List<char>& charList);
+
+#endif

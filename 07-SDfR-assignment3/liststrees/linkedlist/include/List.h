@@ -1,3 +1,11 @@
+//==============================================================
+// Filename    : 
+// Authors     : 
+// Group       :
+// License     :  N.A. or opensource license like LGPL
+// Description : 
+//==============================================================
+
 // Fig. 19.5: List.h
 // List class-template definition.
 #ifndef LIST_H
@@ -166,8 +174,6 @@ private:
       return new ListNode<NODETYPE>{value};
    } 
 }; 
-
-void fillList(const std::string& str, List<char>& charList);
 
 #endif
 

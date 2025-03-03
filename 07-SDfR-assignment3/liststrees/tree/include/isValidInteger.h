@@ -1,16 +1,15 @@
 //==============================================================
-// Filename    : 
+// Filename    : isValidInteger.h
 // Authors     : 
 // Group       :
 // License     :  N.A. or opensource license like LGPL
 // Description : 
 //==============================================================
 
-#include <iostream>
-#include "List.h"
+#ifndef ISVALIDINTEGER_H
+#define ISVALIDINTEGER_H
+#include <string>
 
-void fillList(const std::string& str, List<char>& charList) {
-    for (char ch : str) {
-        charList.insertAtBack(ch);
-    }
-}
+bool isValidInteger(const std::string &str);
+
+#endif
