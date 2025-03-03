@@ -28,6 +28,16 @@ public:
    void postOrderTraversal() const {
       postOrderHelper(rootPtr); 
    } 
+   
+   // Public search function
+    TreeNode<NODETYPE>* search(const NODETYPE& value) const {
+        return searchHelper(rootPtr, value);
+    }
+
+   void outputTree(int space = 0, int spacingFactor = 5) const {
+      outputTreeHelper(rootPtr, space, spacingFactor);
+   }
+
 
 private:
    TreeNode<NODETYPE>* rootPtr{nullptr};
@@ -56,6 +66,36 @@ private:
          } 
       } 
    } 
+
+    // Recursive search helper function
+    TreeNode<NODETYPE>* searchHelper(TreeNode<NODETYPE>* ptr, const NODETYPE& value) const {
+        if (ptr == nullptr || ptr->data == value) {
+            return ptr; // Found or reached null (not found)
+        }
+
+        if (value < ptr->data) {
+            return searchHelper(ptr->leftPtr, value);
+        } else {
+            return searchHelper(ptr->rightPtr, value);
+        }
+    }
+
+      void outputTreeHelper(TreeNode<NODETYPE>* ptr, int space, int spacingFactor) const {
+      if (ptr == nullptr) {
+         return;
+      }
+
+      space += spacingFactor; // Increase distance for the next level
+
+      // Print right subtree first
+      outputTreeHelper(ptr->rightPtr, space, spacingFactor);
+
+      // Print current node after space indentation
+      std::cout << std::string(space, ' ') << ptr->data << "\n";
+
+      // Print left subtree
+      outputTreeHelper(ptr->leftPtr, space, spacingFactor);
+   }
 
    // utility function to perform preorder traversal of Tree
    void preOrderHelper(TreeNode<NODETYPE>* ptr) const {
