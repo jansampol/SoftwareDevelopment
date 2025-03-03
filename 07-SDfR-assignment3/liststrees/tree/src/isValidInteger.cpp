@@ -1,9 +1,9 @@
 //==============================================================
 // Filename    : isValidInteger.cpp
-// Authors     : 
+// Authors     : Teresa Edo and Jan Sampol
 // Group       :
 // License     :  N.A. or opensource license like LGPL
-// Description : 
+// Description : checks if the input value is a single integer
 //==============================================================
 
 #include <iostream>

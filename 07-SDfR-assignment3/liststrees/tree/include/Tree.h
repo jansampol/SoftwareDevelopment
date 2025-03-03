@@ -1,6 +1,6 @@
 //==============================================================
 // Filename    : Tree.h
-// Authors     : 
+// Authors     : Teresa Edo and Jan Sampol
 // Group       :
 // License     :  N.A. or opensource license like LGPL
 // Description : 
@@ -42,6 +42,7 @@ public:
         return searchHelper(rootPtr, value);
     }
 
+   // Display the tree
    void outputTree(int space = 0, int spacingFactor = 5) const {
       outputTreeHelper(rootPtr, space, spacingFactor);
    }
@@ -92,8 +93,8 @@ private:
       if (ptr == nullptr) {
          return;
       }
-
-      space += spacingFactor; // Increase distance for the next level
+      // Increase distance for the next level
+      space += spacingFactor;
 
       // Print right subtree first
       outputTreeHelper(ptr->rightPtr, space, spacingFactor);

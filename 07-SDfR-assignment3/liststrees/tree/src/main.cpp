@@ -1,6 +1,6 @@
 //==============================================================
 // Filename    : main.cpp
-// Authors     : 
+// Authors     : Teresa Edo and Jan Sampol
 // Group       :
 // License     :  N.A. or opensource license like LGPL
 // Description : 
@@ -17,7 +17,7 @@ int main() {
     Tree<int> intTree;
 
     // Include the desired values
-    int values[] = {17, 42, 13, 50, 27, 11, 1, 6, 33, 20, 47, 48};
+    int values[] = {27, 42, 48, 50, 47, 33, 13, 17, 20, 6, 11, 1};
 
     std::cout << "\nInserting values into the tree: ";
     for (int value : values) {
