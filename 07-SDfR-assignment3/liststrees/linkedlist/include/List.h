@@ -110,6 +110,27 @@ public:
       } 
    } 
 
+   // concatenate another list to this list
+   void concatenate(List<NODETYPE>& other) {
+        if (other.isEmpty()) {
+            return; // Nothing to concatenate
+        }
+
+        if (isEmpty()) {
+            // If this list is empty, just take ownership of the other list
+            firstPtr = other.firstPtr;
+            lastPtr = other.lastPtr;
+        } else {
+            // Connect last node of this list to first node of the other list
+            lastPtr->nextPtr = other.firstPtr;
+            lastPtr = other.lastPtr;
+        }
+
+        // Empty the other list
+        other.firstPtr = nullptr;
+        other.lastPtr = nullptr;
+    }
+
    // is List empty?
 
    bool isEmpty() const {
@@ -134,6 +155,7 @@ public:
 
       std::cout << "\n\n";
    } 
+
 
 private:
    ListNode<NODETYPE>* firstPtr{nullptr}; // pointer to first node
