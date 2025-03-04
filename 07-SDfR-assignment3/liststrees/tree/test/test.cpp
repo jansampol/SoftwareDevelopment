@@ -11,6 +11,7 @@
 #include <iostream>
 #include <cassert>
 #include <sstream>
+#include <limits>
 
 // Test the correct display of the structure
 void testTreeConstruction() {
