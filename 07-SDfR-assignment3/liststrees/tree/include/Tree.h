@@ -42,11 +42,15 @@ public:
         return searchHelper(rootPtr, value);
     }
 
+   // Count the nodes of the tree
+   int countNodes() const {
+    return countNodesHelper(rootPtr);
+   }
+
    // Display the tree
    void outputTree(int space = 0, int spacingFactor = 5) const {
       outputTreeHelper(rootPtr, space, spacingFactor);
    }
-
 
 private:
    TreeNode<NODETYPE>* rootPtr{nullptr};
@@ -87,6 +91,14 @@ private:
         } else {
             return searchHelper(ptr->rightPtr, value);
         }
+    }
+
+   // Recursive count nodes helper function
+    int countNodesHelper(TreeNode<NODETYPE>* ptr) const {
+    if (ptr == nullptr) {
+        return 0;
+    }
+    return 1 + countNodesHelper(ptr->leftPtr) + countNodesHelper(ptr->rightPtr);
     }
 
       void outputTreeHelper(TreeNode<NODETYPE>* ptr, int space, int spacingFactor) const {
