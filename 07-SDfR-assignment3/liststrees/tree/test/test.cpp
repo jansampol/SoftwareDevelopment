@@ -122,6 +122,14 @@ void testEdgeCases() {
         assert(false); // If this line is reached, test should fail
     } catch(...){}
 
+    // Test boundary values
+    tree.insertNode(std::numeric_limits<int>::max());
+    tree.insertNode(std::numeric_limits<int>::min());
+    tree.insertNode(0);
+    assert(tree.search(std::numeric_limits<int>::max()) != nullptr);
+    assert(tree.search(std::numeric_limits<int>::min()) != nullptr);
+    assert(tree.search(0) != nullptr);
+
     std::cout << "\nTest 4: Edge case tests passed.\n";
 }
 
