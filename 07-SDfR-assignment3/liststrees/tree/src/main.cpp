@@ -3,7 +3,7 @@
 // Authors     : Teresa Edo and Jan Sampol
 // Group       : 7
 // License     :  N.A. or opensource license like LGPL
-// Description : initrializates a Tree objec and ask the user to 
+// Description : Initialises a Tree objec and ask the user to 
 //               introduce an integer to search it in the Tree
 //==============================================================
 
