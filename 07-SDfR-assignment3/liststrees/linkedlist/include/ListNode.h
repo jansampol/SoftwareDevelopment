@@ -1,9 +1,9 @@
 //==============================================================
-// Filename    : 
-// Authors     : 
-// Group       :
+// Filename    : ListNode.h
+// Authors     : Teresa Edo and Jan Sampol
+// Group       : 7
 // License     :  N.A. or opensource license like LGPL
-// Description : 
+// Description : Definition of ListNode class
 //==============================================================
 
 // Fig. 19.4: ListNode.h

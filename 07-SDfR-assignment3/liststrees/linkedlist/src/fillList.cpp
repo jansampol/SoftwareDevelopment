@@ -1,9 +1,9 @@
 //==============================================================
 // Filename    : fillList.cpp
-// Authors     : 
-// Group       :
+// Authors     : Teresa Edo and Jan Sampol
+// Group       : 7
 // License     :  N.A. or opensource license like LGPL
-// Description : 
+// Description : Definition of fillList function
 //==============================================================
 
 #include <iostream>

@@ -1,9 +1,10 @@
 //==============================================================
 // Filename    : main.cpp
 // Authors     : Teresa Edo and Jan Sampol
-// Group       :
+// Group       : 7
 // License     :  N.A. or opensource license like LGPL
-// Description : 
+// Description : initrializates a Tree objec and ask the user to 
+//               introduce an integer to search it in the Tree
 //==============================================================
 
 #include "Tree.h"

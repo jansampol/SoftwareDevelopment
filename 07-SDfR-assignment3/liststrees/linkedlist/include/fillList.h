@@ -1,9 +1,9 @@
 //==============================================================
-// Filename    : 
-// Authors     : 
-// Group       :
+// Filename    : fillList.h
+// Authors     : Teresa Edo and Jan Sampol
+// Group       : 7
 // License     :  N.A. or opensource license like LGPL
-// Description : 
+// Description : Declaration of fillList function
 //==============================================================
 
 #ifndef FILLLIST_H

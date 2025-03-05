@@ -1,9 +1,9 @@
 //==============================================================
 // Filename    : isValidInteger.h
 // Authors     : Teresa Edo and Jan Sampol
-// Group       :
+// Group       : 7
 // License     :  N.A. or opensource license like LGPL
-// Description : 
+// Description : Declaration of isValidInteger function
 //==============================================================
 
 #ifndef ISVALIDINTEGER_H

@@ -1,7 +1,7 @@
 //==============================================================
 // Filename    : test.cpp
 // Authors     : Teresa Edo and Jan Sampol
-// Group       :
+// Group       : 7
 // License     : N.A. or opensource license like LGPL
 // Description : Exhaustive test suite for Tree implementation
 //==============================================================
@@ -11,6 +11,7 @@
 #include <iostream>
 #include <cassert>
 #include <sstream>
+#include <limits>
 
 // Test the correct display of the structure
 void testTreeConstruction() {

@@ -1,9 +1,9 @@
 //==============================================================
 // Filename    : TreeNode.h
 // Authors     : Teresa Edo and Jan Sampol
-// Group       :
+// Group       : 7
 // License     :  N.A. or opensource license like LGPL
-// Description : 
+// Description : Definition of TreeNode class
 //==============================================================
 
 // Fig. 19.21: TreeNode.h

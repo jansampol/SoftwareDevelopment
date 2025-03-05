@@ -1,9 +1,9 @@
 //==============================================================
 // Filename    : test.cpp
 // Authors     : Teresa Edo and Jan Sampol
-// Group       : 
+// Group       : 7
 // License     : N.A. or opensource license like LGPL
-// Description : Tests the coorect functioning of the program
+// Description : Tests the correct functioning of the program
 //==============================================================
 
 #include "List.h"

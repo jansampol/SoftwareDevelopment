@@ -1,9 +1,9 @@
 //==============================================================
-// Filename    : 
-// Authors     : 
-// Group       :
+// Filename    : main.cpp
+// Authors     : Teresa Edo and Jan Sampol
+// Group       : 7
 // License     :  N.A. or opensource license like LGPL
-// Description : 
+// Description : Initializates char lists and calls the functions
 //==============================================================
 
 #include "List.h"

@@ -1,9 +1,9 @@
 //==============================================================
 // Filename    : Tree.h
 // Authors     : Teresa Edo and Jan Sampol
-// Group       :
+// Group       : 7
 // License     :  N.A. or opensource license like LGPL
-// Description : 
+// Description : Definition of Tree class
 //==============================================================
 
 // Fig. 19.22: Tree.h
@@ -101,7 +101,8 @@ private:
     return 1 + countNodesHelper(ptr->leftPtr) + countNodesHelper(ptr->rightPtr);
     }
 
-      void outputTreeHelper(TreeNode<NODETYPE>* ptr, int space, int spacingFactor) const {
+   // Recursive function to print the tree
+   void outputTreeHelper(TreeNode<NODETYPE>* ptr, int space, int spacingFactor) const {
       if (ptr == nullptr) {
          return;
       }
