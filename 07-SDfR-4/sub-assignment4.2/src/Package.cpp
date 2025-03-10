@@ -7,10 +7,13 @@
 //==============================================================
 
 #include "../include/Package.h"
-using namespace std;
 
-Package::Package(const Customer& s, const Customer& r, double w)
-    : sender(s), receiver(r), weight(w > 0 ? w : 0) {}
+Package::Package(const Customer& s, const Customer& r, double w) 
+    : sender(s), receiver(r), weight(w), valid(true) {
+    if (w <= 0) {
+        valid = false;  // Mark the package as invalid
+    }
+}
 
 const Customer& Package::getSender() const {
     return sender;
@@ -24,7 +27,16 @@ double Package::getWeight() const {
     return weight;
 }
 
+bool Package::isValid() const {
+    return valid;
+}
+
 void Package::print() const {
-    cout << "Package from " << sender.getInfo() << " to " << receiver.getInfo()
-         << ", Weight: " << weight << "kg";
+    if (!valid) {
+        cout << "Invalid Package (Weight: " << weight << "kg) from " << sender.getInfo() 
+        << " to " << receiver.getInfo() << endl;
+    } else {
+        cout << "Package from " << sender.getInfo() << " to " << receiver.getInfo()
+             << ", Weight: " << weight << "kg" << endl;
+    }
 }

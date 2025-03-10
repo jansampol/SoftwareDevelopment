@@ -1,65 +1,19 @@
-//==============================================================
-// Filename    : main.cpp
+// main.cpp
 // Authors     : Teresa Edo and Jan Sampol
 // Group       : 7
 // License     : N.A. or open-source license like LGPL
 // Description : Manages customers and packages, ensuring different 
 //               types of customers are properly linked to packages.
-//==============================================================
 
 #include "../include/TwoDayPackage.h"
 #include "../include/OvernightPackage.h"
 #include "../include/PrivateCustomer.h"
 #include "../include/BusinessCustomer.h"
+#include "../include/PackagePrinter.h" 
 #include <vector>
 #include <set>
 
 using namespace std;
-
-void printCosts(const vector<Package*>& packages) {
-    for (const auto& package : packages) {
-        package->print();
-        cout << " - Shipping Cost: €" << package->calculateCost() << endl << endl;
-    }
-}
-
-// Print all customer information
-void printCustomerInfo(const vector<Customer*>& customers) {
-    cout << "=== Customer Information ===" << endl;
-    for (const auto& customer : customers) {
-        cout << customer->getInfo() << endl;  // Calls getInfo() dynamically
-    }
-    cout << "============================\n " << endl;
-}
- 
-// Print Contact Names from active senders or receivers (Business customers)
-void printChristmasCardContactPersons(const vector<Package*>& packages) {
-    set<string> printedContacts;  // Track unique names
-
-    cout << "=== Christmas Card Contact List ===" << endl;
-    for (const auto& package : packages) {
-        // Check sender
-        const BusinessCustomer* sender = dynamic_cast<const BusinessCustomer*>(&package->getSender());
-        if (sender) {
-            string contact = sender->getContactPerson();
-            if (printedContacts.find(contact) == printedContacts.end()) {
-                cout << contact << endl;
-                printedContacts.insert(contact);
-            }
-        }
-
-        // Check receiver
-        const BusinessCustomer* receiver = dynamic_cast<const BusinessCustomer*>(&package->getReceiver());
-        if (receiver) {
-            string contact = receiver->getContactPerson();
-            if (printedContacts.find(contact) == printedContacts.end()) {
-                cout << contact << endl;
-                printedContacts.insert(contact);
-            }
-        }
-    }
-    cout << "===================================\n" << endl;
-}
 
 int main() {
     // Create customers
@@ -78,12 +32,13 @@ int main() {
         new TwoDayPackage(*customers[0], *customers[1], 3),  // Alice to Bob
         new OvernightPackage(*customers[3], *customers[2], 2), // TechCorp to Charlie
         new TwoDayPackage(*customers[4], *customers[5], 5),   // LogiTrans to MegaMart
-        new OvernightPackage(*customers[3], *customers[5], 4) // TechCorp to MegaMart (Multiple packages)
+        new OvernightPackage(*customers[3], *customers[5], 4), // TechCorp to MegaMart (Multiple packages)
+        new TwoDayPackage(*customers[3], *customers[1], 0)
     };
 
-    printCosts(packages);
-    printCustomerInfo(customers);
-    printChristmasCardContactPersons(packages);
+    printCosts(packages);  // Print the costs of the packages
+    printCustomerInfo(customers);  // Print customer information
+    printChristmasCardContactPersons(packages);  // Print Christmas card contact list
 
     // Cleanup memory
     for (auto package : packages) delete package;
