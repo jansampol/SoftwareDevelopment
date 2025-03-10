@@ -6,7 +6,7 @@
 // Description : Implements the TwoDayPackage class
 //==============================================================
 
-#include "../include/TwoDayPackage.h"
+#include "TwoDayPackage.h"
 using namespace std;
 
 TwoDayPackage::TwoDayPackage(const Customer& s, const Customer& r, double w)

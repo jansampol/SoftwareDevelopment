@@ -6,7 +6,7 @@
 // Description : Implements the base class for Customer
 //==============================================================
 
-#include "../include/Customer.h"
+#include "Customer.h"
 using namespace std;
 
 Customer::Customer(string addr) : address(addr) {}

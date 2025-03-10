@@ -6,7 +6,7 @@
 // Description : Implements the PrivateCustomer class
 //==============================================================
 
-#include "../include/PrivateCustomer.h"
+#include "PrivateCustomer.h"
 using namespace std;
 
 PrivateCustomer::PrivateCustomer(string n, string addr) : Customer(addr), name(n) {}
