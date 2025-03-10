@@ -6,7 +6,7 @@
 // Description : Implements the OvernightPackage class
 //==============================================================
 
-#include "OvernightPackage.h"
+#include "../include/OvernightPackage.h"
 using namespace std;
 
 OvernightPackage::OvernightPackage(const Customer& s, const Customer& r, double w)

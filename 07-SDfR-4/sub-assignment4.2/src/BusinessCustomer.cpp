@@ -6,7 +6,7 @@
 // Description : Implements the BusinessCustomer class
 //==============================================================
 
-#include "BusinessCustomer.h"
+#include "../include/BusinessCustomer.h"
 using namespace std;
 
 BusinessCustomer::BusinessCustomer(string cName, string addr, string contact)
@@ -14,4 +14,8 @@ BusinessCustomer::BusinessCustomer(string cName, string addr, string contact)
 
 string BusinessCustomer::getInfo() const {
     return "Business Customer: " + companyName + ", Contact Person: " + contactPerson + ", Address: " + getAddress();
+}
+
+string BusinessCustomer::getContactPerson() const {
+    return contactPerson;
 }

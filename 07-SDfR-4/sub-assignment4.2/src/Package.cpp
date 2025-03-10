@@ -6,7 +6,7 @@
 // Description : Implements the base class for Package
 //==============================================================
 
-#include "Package.h"
+#include "../include/Package.h"
 using namespace std;
 
 Package::Package(const Customer& s, const Customer& r, double w)
