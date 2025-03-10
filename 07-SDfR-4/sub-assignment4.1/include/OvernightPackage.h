@@ -13,13 +13,18 @@
 
 class OvernightPackage : public Package {
 private:
+
+    // Create private constant variables to avoid unexpected changes
     static constexpr double COST_PER_KG = 2.50;
     static constexpr double FLAT_FEE = 5.0;
     static constexpr double EXTRA_COST_PER_KG2 = 1.10;
 
 public:
+
+    // Constructor to initialize an OvernightPackage object
     OvernightPackage(string s, string sAddr, string r, string rAddr, double w);
 
+    // Overrides the base class method to compute the shipping cost
     double calculateCost() const override;
 };
 
