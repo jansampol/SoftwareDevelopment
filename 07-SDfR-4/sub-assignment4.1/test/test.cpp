@@ -6,8 +6,8 @@
 // Description : Testing for Package, TwoDayPackage, and OvernightPackage.
 //==============================================================
 
-#include "../include/TwoDayPackage.h"
-#include "../include/OvernightPackage.h"
+#include "TwoDayPackage.h"
+#include "OvernightPackage.h"
 #include <iostream>
 #include <vector>
 #include <cassert>
