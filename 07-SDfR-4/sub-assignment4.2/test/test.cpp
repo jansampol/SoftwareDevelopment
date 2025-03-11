@@ -11,10 +11,12 @@
 #include "../include/BusinessCustomer.h"
 #include "../include/TwoDayPackage.h"
 #include "../include/OvernightPackage.h"
+#include "../include/PackagePrinter.h"
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <stdexcept> // For handling exceptions
+#include <stdexcept>
+#include <sstream>
 
 using namespace std;
 
@@ -25,6 +27,8 @@ void testPrivateCustomer() {
     // Check if name and address are correctly assigned
     assert(p1.getInfo().find("Alice") != string::npos);
     assert(p1.getAddress() == "123 Main St");
+    // If the test successfully pass, print the message
+    cout << "Private Customer creation Tests Passed Successfully!" << endl;
 }
 
 // Test creating Business Customers
@@ -35,6 +39,8 @@ void testBusinessCustomer() {
     assert(b1.getInfo().find("Tech Corp") != string::npos);
     assert(b1.getAddress() == "789 Oak St");
     assert(b1.getContactPerson() == "John Doe");  // Ensure contact person is correctly set
+    // If the test successfully pass, print the message
+    cout << "Business Customer creation Tests Passed Successfully!" << endl;
 }
 
 // Test handling zero and negative weight
@@ -117,7 +123,7 @@ void testPackagePrinting() {
     package2.print();
     cout << " - Shipping Cost: €" << package2.calculateCost() << endl;
 
-    cout << "\nPackage Printing Test Passed Successfully!" << endl;
+    cout << "\nCheck the output above manually to ensure it matches the expected format." << endl;
 }
 
 // Test very large weights
@@ -132,29 +138,84 @@ void testLargePackageWeights() {
     cout << "Large weight package test passed successfully!" << endl;
 }
 
-// Test empty customer names or addresses
-void testEmptyCustomerFields() {
-    cout << "\nTesting Empty Customer Fields...\n" << endl;
-    PrivateCustomer emptyNameCustomer("", "123 Main St");
-    BusinessCustomer emptyAddressCustomer("Tech Corp", "", "John Doe");
+void testPrintCustomerInfo() {
+    cout << "\nTesting printCustomerInfo..." << endl;
 
-    // Verify empty fields are correctly handled
-    assert(emptyNameCustomer.getInfo().empty()); // Expecting empty name
-    assert(emptyAddressCustomer.getAddress().empty()); // Expecting empty address
+    // Create customers
+    vector<Customer*> customers = {
+        new PrivateCustomer("Alice", "123 Main St"),
+        new PrivateCustomer("Bob", "456 Elm St"),
+        new BusinessCustomer("TechCorp", "101 Pine St", "David")
+    };
 
-    cout << "\nEmpty Customer Fields Test Passed Successfully!\n" << endl;
+    // Call function
+    printCustomerInfo(customers);
+
+    cout << "\nCheck the output above manually to ensure it matches the expected format.\n" << endl;
+
+    // Cleanup
+    for (auto customer : customers) delete customer;
 }
+
+void testPrintChristmasCardContactPersons() {
+    cout << "\nTesting printChristmasCardContactPersons..." << endl;
+
+    // Create customers
+    BusinessCustomer* business1 = new BusinessCustomer("TechCorp", "101 Pine St", "David");
+    BusinessCustomer* business2 = new BusinessCustomer("LogiTrans", "202 Maple St", "Eve");
+    PrivateCustomer* private1 = new PrivateCustomer("Alice", "123 Main St");
+    BusinessCustomer* business3 = new BusinessCustomer("Mercadona", "Avenida Madrid, 20", "Maria Jose"); // Business customer that doesn't send or receive
+
+    // Create packages linking them
+    vector<Package*> packages = {
+        new TwoDayPackage(*business1, *private1, 3), // TechCorp -> Alice
+        new OvernightPackage(*private1, *business2, 2) // Alice -> LogiTrans
+    };
+
+    // Redirect cout to a string stream
+    stringstream buffer;
+    streambuf* old = cout.rdbuf(buffer.rdbuf());
+
+    // Call function
+    printChristmasCardContactPersons(packages);
+
+    // Restore cout
+    cout.rdbuf(old);
+
+    // Expected output
+    string expectedOutput =
+        "=== Christmas Card Contact List ===\n"
+        "David\n"
+        "Eve\n"
+        "===================================\n\n";
+
+    // Generated output
+    cout << "\nGenerated Output:\n" << buffer.str() << endl;
+
+    // Verify
+    assert(buffer.str() == expectedOutput);
+
+    cout << "printChristmasCardContactPersons Test Passed Successfully!\n" << endl;
+
+    // Cleanup
+    for (auto package : packages) delete package;
+    delete business1;
+    delete business2;
+    delete private1;
+}
+
 
 // Main function
 int main() {
-    testPrivateCustomer(); // Ok
-    testBusinessCustomer(); // Ok
-    testInvalidPackageWeights(); // Ok
-    testValidPackages(); // Ok
-    testBusinessCustomerMultiplePackages(); // Ok
-    testPackagePrinting(); // Ok
-    testLargePackageWeights(); // Ok
-    //testEmptyCustomerFields(); // Ok
+    testPrivateCustomer();
+    testBusinessCustomer(); 
+    testInvalidPackageWeights(); 
+    testValidPackages();
+    testBusinessCustomerMultiplePackages(); 
+    testPackagePrinting();
+    testLargePackageWeights(); 
+    testPrintCustomerInfo();
+    testPrintChristmasCardContactPersons();
 
     cout << "\nAll tests passed successfully!\n" << endl;
     return 0;

@@ -22,6 +22,7 @@ private:
     
     // Package weight in kilograms (must be positive)
     double weight;
+    bool valid; // Flag to test if the package is valid
 
 public:
     // Constructor to initialize package details
@@ -33,6 +34,7 @@ public:
     string getReceiver() const;
     string getReceiverAddress() const;
     double getWeight() const;
+    bool isValid() const;
 
     // Pure virtual function to enforce cost calculation in derived classes
     virtual double calculateCost() const = 0;

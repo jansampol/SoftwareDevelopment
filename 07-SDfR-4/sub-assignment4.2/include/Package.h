@@ -17,6 +17,7 @@ using namespace std;
 
 class Package {
 private:
+    // Private variables include now sender and reciever
     const Customer& sender;
     const Customer& receiver;
     double weight;
