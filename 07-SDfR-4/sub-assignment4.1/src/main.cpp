@@ -18,14 +18,15 @@ using namespace std;
 void printCosts(const vector<Package*>& packages) {
     for (const auto& package : packages) {
         package->print();
-        cout << " - Shipping Cost: €" << package->calculateCost() << endl;
+        if (package->isValid())
+            cout << " - Shipping Cost: €" << package->calculateCost() << endl;
     }
 }
 
 int main() {
     // Create a list of packages with different shipping types
     vector<Package*> packages = {
-        new TwoDayPackage("Alice", "123 Main St", "Bob", "456 Elm St", 3),
+        new TwoDayPackage("Alice", "123 Main St", "Bob", "456 Elm St", -3),
         new OvernightPackage("Charlie", "789 Oak St", "David", "101 Pine St", 2),
         new TwoDayPackage("Eve", "202 Maple St", "Frank", "303 Cedar St", 5)
     };

@@ -12,6 +12,8 @@
 
 #include "Customer.h"
 
+using namespace std;
+
 class BusinessCustomer : public Customer {
 private:
     // Business customer details
@@ -21,6 +23,8 @@ private:
 public:
     // Constructor to initialize business customer details
     BusinessCustomer(string cName, string addr, string contact);
+
+    string getContactPerson() const;
 
     // Retrieves customer info
     string getInfo() const override;

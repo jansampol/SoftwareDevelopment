@@ -11,37 +11,36 @@
 #ifndef PACKAGE_H
 #define PACKAGE_H
 
-#include "Customer.h"
 #include <iostream>
+#include "Customer.h"
 using namespace std;
 
 class Package {
 private:
-    // Sender and receiver information
+    // Private variables include now sender and reciever
     const Customer& sender;
     const Customer& receiver;
-
-    // Package weight in kilograms (must be positive)
     double weight;
+    bool valid;  // Flag to indicate if the package is valid
 
 public:
-    // Constructor to initialize package details
+    // Constructor
     Package(const Customer& s, const Customer& r, double w);
-    
-    // Getter methods to retrieve private attributes
+
+    // Getter methods
     const Customer& getSender() const;
     const Customer& getReceiver() const;
     double getWeight() const;
+    bool isValid() const;  // Checks if package is valid
 
-    // Pure virtual function to enforce cost calculation in derived classes
+    // Pure virtual function for cost calculation
     virtual double calculateCost() const = 0;
 
-    // Displays package details
+    // Print package details
     virtual void print() const;
 
-    // Virtual destructor to ensure proper cleanup in derived classes
+    // Virtual destructor
     virtual ~Package() {}
 };
 
 #endif
-
