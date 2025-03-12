@@ -14,5 +14,5 @@ TwoDayPackage::TwoDayPackage(const Customer& s, const Customer& r, double w)
 
 double TwoDayPackage::calculateCost() const {
 
-    return (getWeight() * COST_PER_KG) + FLAT_FEE;
+    return (getWeight() * getCostPerKg()) + getFlatFee();
 }

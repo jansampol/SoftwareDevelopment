@@ -12,9 +12,6 @@
 #include "Package.h"
 
 class TwoDayPackage : public Package {
-private:
-    static constexpr double COST_PER_KG = 2.50;
-    static constexpr double FLAT_FEE = 5.0;
 
 public:
     // Constructor to initialize package details
