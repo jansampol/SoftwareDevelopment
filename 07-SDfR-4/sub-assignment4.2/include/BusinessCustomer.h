@@ -24,6 +24,7 @@ public:
     // Constructor to initialize business customer details
     BusinessCustomer(string cName, string addr, string contact);
 
+    // Getter method to obtain private variables
     string getContactPerson() const;
 
     // Retrieves customer info

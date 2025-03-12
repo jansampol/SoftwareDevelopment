@@ -26,7 +26,7 @@ double Package::getFlatFee() {return FLAT_FEE;}
 bool Package::isValid() const {return valid;}
 
 
-
+// Define the print() method. We do it here because is commot to all type of packages
 void Package::print() const {
     if (!valid) {
         cout << "Invalid Package (Weight: " << weight << "kg) from " << sender.getInfo() 

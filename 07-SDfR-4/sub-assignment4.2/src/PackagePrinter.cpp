@@ -3,7 +3,7 @@
 // Authors     : Teresa Edo and Jan Sampol
 // Group       : 7
 // License     : N.A. or open-source license like LGPL
-// Description : 
+// Description : defines the different printer functions
 //==============================================================
 
 #include "PackagePrinter.h"

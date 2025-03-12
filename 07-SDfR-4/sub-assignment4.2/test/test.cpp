@@ -6,12 +6,12 @@
 // Description : Testing of the package delivery system.
 //==============================================================
 
-#include "../include/Customer.h"
-#include "../include/PrivateCustomer.h"
-#include "../include/BusinessCustomer.h"
+#include "Customer.h"
+#include "PrivateCustomer.h"
+#include "BusinessCustomer.h"
 #include "../include/TwoDayPackage.h"
 #include "../include/OvernightPackage.h"
-#include "../include/PackagePrinter.h"
+#include "PackagePrinter.h"
 #include <iostream>
 #include <vector>
 #include <cassert>

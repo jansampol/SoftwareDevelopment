@@ -9,8 +9,10 @@
 #include "PrivateCustomer.h"
 using namespace std;
 
+// Class constructor
 PrivateCustomer::PrivateCustomer(string n, string addr) : Customer(addr), name(n) {}
 
+// Getter definition
 string PrivateCustomer::getInfo() const {
     return "Private Customer: " + name + ", Address: " + getAddress();
 }

@@ -9,8 +9,10 @@
 #include "Customer.h"
 using namespace std;
 
+// Class constructor
 Customer::Customer(string addr) : address(addr) {}
 
+// Define getter method
 string Customer::getAddress() const {
     return address;
 }
