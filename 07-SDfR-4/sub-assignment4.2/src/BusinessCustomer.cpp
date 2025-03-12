@@ -6,7 +6,7 @@
 // Description : Implements the BusinessCustomer class
 //==============================================================
 
-#include "../include/BusinessCustomer.h"
+#include "BusinessCustomer.h"
 using namespace std;
 
 BusinessCustomer::BusinessCustomer(string cName, string addr, string contact)
