@@ -7,7 +7,7 @@
 //               a flat fee in addition to the standard cost per kilogram.
 //==============================================================
 
-#include "../include/TwoDayPackage.h"
+#include "TwoDayPackage.h"
 
 using namespace std;
 

@@ -8,7 +8,7 @@
 //               standard shipping cost.
 //==============================================================
 
-#include "../include/OvernightPackage.h"
+#include "OvernightPackage.h"
 
 using namespace std;
 

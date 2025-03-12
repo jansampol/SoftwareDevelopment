@@ -8,8 +8,8 @@
 //               shipping costs for different packages.
 //==============================================================
 
-#include "../include/TwoDayPackage.h"
-#include "../include/OvernightPackage.h"
+#include "TwoDayPackage.h"
+#include "OvernightPackage.h"
 #include <vector>
 
 using namespace std;

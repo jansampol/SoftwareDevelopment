@@ -7,7 +7,7 @@
 //==============================================================
 
 #include "PackagePrinter.h"
-#include "../include/BusinessCustomer.h"
+#include "BusinessCustomer.h"
 #include <iostream>
 #include <set>
 
