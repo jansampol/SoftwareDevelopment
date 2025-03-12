@@ -15,8 +15,6 @@ class OvernightPackage : public Package {
 private:
 
     // Create private constant variables to avoid unexpected changes
-    static constexpr double COST_PER_KG = 2.50;
-    static constexpr double FLAT_FEE = 5.0;
     static constexpr double EXTRA_COST_PER_KG2 = 1.10;
 
 public:

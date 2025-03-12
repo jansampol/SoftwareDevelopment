@@ -19,6 +19,10 @@ private:
     // Sender and receiver information
     string sender, senderAddress;
     string receiver, receiverAddress;
+
+    // Constant Cost information
+    static constexpr double COST_PER_KG = 2.50;
+    static constexpr double FLAT_FEE = 5.0;
     
     // Package weight in kilograms (must be positive)
     double weight;
@@ -36,11 +40,15 @@ public:
     double getWeight() const;
     bool isValid() const;
 
+    // Getter for the contstants
+    static double getCostPerKg();
+    static double getFlatFee();
+
     // Pure virtual function to enforce cost calculation in derived classes
     virtual double calculateCost() const = 0;
 
     // Displays package details
-    virtual void print() const;
+    void print() const;
 
     // Virtual destructor to ensure proper cleanup in derived classes
     virtual ~Package() {}
