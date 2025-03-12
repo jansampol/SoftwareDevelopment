@@ -24,8 +24,8 @@ string Package::getSenderAddress() const { return senderAddress; }
 string Package::getReceiver() const { return receiver; }
 string Package::getReceiverAddress() const { return receiverAddress; }
 double Package::getWeight() const { return weight; }
-bool Package::isValid() const {return valid; } 
-double Package::getCostPerKg() {return COST_PER_KG;}
+bool Package::isValid() const {return valid; } // Getter method for the flag obtenction
+double Package::getCostPerKg() {return COST_PER_KG;} 
 double Package::getFlatFee() {return FLAT_FEE;}
 
 // Prints package details

@@ -3,7 +3,8 @@
 // Authors     : Teresa Edo and Jan Sampol
 // Group       : 7
 // License     :  N.A. or opensource license like LGPL
-// Description : 
+// Description : Extends Package to add an extra cost per kg for 
+//               overnight shipping.
 //==============================================================
 
 #ifndef OVERNIGHTPACKAGE_H
