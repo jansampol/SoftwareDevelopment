@@ -1,9 +1,11 @@
-// main.cpp
+//==============================================================
+// File name   : main.cpp
 // Authors     : Teresa Edo and Jan Sampol
 // Group       : 7
 // License     : N.A. or open-source license like LGPL
 // Description : Manages customers and packages, ensuring different 
 //               types of customers are properly linked to packages.
+//==============================================================
 
 #include "../include/TwoDayPackage.h"
 #include "../include/OvernightPackage.h"

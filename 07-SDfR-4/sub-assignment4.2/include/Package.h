@@ -22,6 +22,8 @@ private:
     const Customer& receiver;
     double weight;
     bool valid;  // Flag to indicate if the package is valid
+    static constexpr double COST_PER_KG = 2.50; // Costant shipping cost
+    static constexpr double FLAT_FEE = 5.0;
 
 public:
     // Constructor
@@ -32,6 +34,10 @@ public:
     const Customer& getReceiver() const;
     double getWeight() const;
     bool isValid() const;  // Checks if package is valid
+
+    // Getter for the contstants
+    static double getCostPerKg();
+    static double getFlatFee();
 
     // Pure virtual function for cost calculation
     virtual double calculateCost() const = 0;

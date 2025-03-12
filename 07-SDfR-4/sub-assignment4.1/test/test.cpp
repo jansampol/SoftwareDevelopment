@@ -68,14 +68,16 @@ void testPackagePrinting() {
     TwoDayPackage package1("Alice", "123 Main St", "Bob", "456 Elm St", 3);
     OvernightPackage package2("Charlie", "789 Oak St", "David", "101 Pine St", 2);
 
-    package1.print();
-    package2.print();
+    package1.print(); // Print package 1
+    package2.print(); // Print package 2
 
     cout << "Visually check if package printing test passed successfully\n";
 }
 
 // Main function to execute all tests
 int main() {
+
+    // Call all tester functions
     testTwoDayPackage();
     testOvernightPackage();
     testInvalidPackageWeights();

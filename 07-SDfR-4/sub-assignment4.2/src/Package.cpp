@@ -15,22 +15,18 @@ Package::Package(const Customer& s, const Customer& r, double w)
     }
 }
 
-const Customer& Package::getSender() const {
-    return sender;
-}
+// Define the getter methods
+const Customer& Package::getSender() const {return sender;}
+const Customer& Package::getReceiver() const {return receiver;}
+double Package::getWeight() const {return weight;}
+double Package::getCostPerKg() {return COST_PER_KG;}
+double Package::getFlatFee() {return FLAT_FEE;}
 
-const Customer& Package::getReceiver() const {
-    return receiver;
-}
+// Define the isValid method
+bool Package::isValid() const {return valid;}
 
-double Package::getWeight() const {
-    return weight;
-}
 
-bool Package::isValid() const {
-    return valid;
-}
-
+// Define the print() method. We do it here because is commot to all type of packages
 void Package::print() const {
     if (!valid) {
         cout << "Invalid Package (Weight: " << weight << "kg) from " << sender.getInfo() 

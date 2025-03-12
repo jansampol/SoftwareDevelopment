@@ -15,6 +15,8 @@
 
 class TwoDayPackage : public Package {
 
+    // In this class there is no private variables
+
 public:
     // Constructor to initialize a TwoDayPackage object
     TwoDayPackage(string s, string sAddr, string r, string rAddr, double w);
