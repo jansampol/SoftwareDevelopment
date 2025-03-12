@@ -18,5 +18,6 @@ OvernightPackage::OvernightPackage(string s, string sAddr, string r, string rAdd
 
 // Calculates the total shipping cost
 double OvernightPackage::calculateCost() const {
-    return (getWeight() * COST_PER_KG) + FLAT_FEE + (getWeight() * getWeight() * EXTRA_COST_PER_KG2);
+    return (getWeight() * getCostPerKg()) + getFlatFee() 
+           + (getWeight() * getWeight() * EXTRA_COST_PER_KG2);
 }

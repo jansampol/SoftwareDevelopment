@@ -15,7 +15,7 @@ using namespace std;
 TwoDayPackage::TwoDayPackage(string s, string sAddr, string r, string rAddr, double w)
     : Package(s, sAddr, r, rAddr, w) {}
 
-// Calculates the total shipping cost
+// Define the calculateCost
 double TwoDayPackage::calculateCost() const {
-    return (getWeight() * COST_PER_KG) + FLAT_FEE;
+    return (getWeight() * getCostPerKg()) + getFlatFee();
 }
